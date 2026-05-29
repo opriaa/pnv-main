@@ -1,0 +1,277 @@
+/* ============================================================
+   THEME — single source of truth for brand colors
+   ------------------------------------------------------------
+   To change the entire site's accent color, edit ONLY the values
+   in the `:root` block below. Nothing else in the codebase needs
+   to be touched.
+
+   Three groups of tokens:
+     1. --brand-* / --brand-rgb     The primary brand ramp (50→900).
+     2. --accent-* / --accent-rgb   Secondary pop, used in gradients.
+     3. --hero-*  / --cta-*  /
+        --admin-sidebar-*           Decorative gradients that reuse
+                                    or extend the brand mood.
+
+   The rgba pairs (`--brand-rgb`, etc.) are RGB triplets so you can
+   compose them with custom alpha: `rgba(var(--brand-rgb), 0.2)`.
+   Keep the hex value and the RGB triplet in sync if you change them.
+
+   A complete "Dark Green" preset is included at the bottom of this
+   file (commented out) — uncomment its `:root` block to swap themes.
+   ============================================================ */
+
+:root {
+  /* ============ 1. PRIMARY BRAND RAMP (indigo) ============ */
+  --brand-50: #eef2ff;
+  --brand-100: #e0e7ff;
+  --brand-200: #c7d2fe;
+  --brand-300: #a5b4fc;
+  --brand-400: #818cf8;
+  --brand-500: #6366f1; /* anchor */
+  --brand-600: #4f46e5;
+  --brand-700: #4338ca;
+  --brand-800: #3730a3;
+  --brand-900: #1e1b4b;
+  --brand-rgb: 99, 102, 241; /* keep in sync with --brand-500 */
+
+  /* ============ 2. ACCENT (violet — secondary pop) ============ */
+  --accent-50: #f5f3ff;
+  --accent-100: #ede9fe;
+  --accent-500: #8b5cf6; /* anchor */
+  --accent-700: #6d28d9;
+  --accent-900: #4c1d95;
+  --accent-rgb: 139, 92, 246;
+
+  /* ============ 3. DECORATIVE GRADIENTS ============ */
+
+  /* Hero banner — three stacked stops over the photo.
+     Each stop is an RGB triplet so the alpha (overlay opacity)
+     stays configurable. Keep stop 1 close to --brand-900 so the
+     hero stays anchored to the brand mood. */
+  --hero-bg: #1c2050;
+  --hero-stop-1: 28, 25, 80; /* ~ --brand-900 */
+  --hero-stop-2: 28, 70, 93; /* secondary (teal mid) */
+  --hero-stop-3: 20, 70, 56; /* tail (deep green) */
+  --hero-alpha-1: 0.92;
+  --hero-alpha-2: 0.78;
+  --hero-alpha-3: 0.78;
+
+  /* CTA section — independent accent gradient.
+     Default reads as teal-green; swap to brand colors for a unified palette. */
+  --cta-stop-1: #0f766e;
+  --cta-stop-2: #0d9488;
+  --cta-stop-3: #14b8a6;
+  --cta-text: #0f766e;
+  --cta-hover-bg: #f0fdfa;
+
+  /* Admin sidebar — deep brand-family gradient.
+     By default reuses brand-900 and an intermediate shade. */
+  --admin-sidebar-stop-1: var(--brand-900);
+  --admin-sidebar-stop-2: #2a2766;
+  --admin-sidebar-toggle-stop-1: var(--brand-900);
+  --admin-sidebar-toggle-stop-2: #312e81;
+
+  /* ============ COMPUTED HELPERS ============ */
+  --shadow-brand: 0 6px 20px rgba(var(--brand-rgb), 0.22);
+  --ring-brand: 0 0 0 3px rgba(var(--brand-rgb), 0.18);
+}
+
+/* ============================================================
+   PRESET: Dark Green
+   ------------------------------------------------------------
+   Uncomment the block below to swap the entire site to a dark
+   forest-green palette. Comment out the block above (or just the
+   conflicting tokens). Both blocks can coexist — the later one wins.
+   ============================================================ */
+
+/*
+:root {
+  --brand-50:  #ecfdf5;
+  --brand-100: #d1fae5;
+  --brand-200: #a7f3d0;
+  --brand-300: #6ee7b7;
+  --brand-400: #34d399;
+  --brand-500: #10b981;
+  --brand-600: #059669;
+  --brand-700: #047857;
+  --brand-800: #065f46;
+  --brand-900: #064e3b;
+  --brand-rgb: 16, 185, 129;
+
+  --accent-50:  #f0fdf4;
+  --accent-100: #dcfce7;
+  --accent-500: #22c55e;
+  --accent-700: #15803d;
+  --accent-900: #14532d;
+  --accent-rgb: 34, 197, 94;
+
+  --hero-bg: #052e1e;
+  --hero-stop-1: 6, 78, 59;
+  --hero-stop-2: 17, 94, 89;
+  --hero-stop-3: 22, 101, 52;
+
+  --cta-stop-1: #14532d;
+  --cta-stop-2: #166534;
+  --cta-stop-3: #15803d;
+  --cta-text: #14532d;
+  --cta-hover-bg: #f0fdf4;
+
+  --admin-sidebar-stop-2: #065f46;
+  --admin-sidebar-toggle-stop-2: #064e3b;
+}
+*/
+
+/* =========================
+   GREY THEME (Minimal / Corporate)
+========================= */
+/* :root {
+  --brand-50: #f9fafb;
+  --brand-100: #f3f4f6;
+  --brand-200: #e5e7eb;
+  --brand-300: #d1d5db;
+  --brand-400: #9ca3af;
+  --brand-500: #6b7280;
+  --brand-600: #4b5563;
+  --brand-700: #374151;
+  --brand-800: #1f2937;
+  --brand-900: #111827;
+  --brand-rgb: 107, 114, 128;
+
+  --accent-50: #fafafa;
+  --accent-100: #f4f4f5;
+  --accent-500: #71717a;
+  --accent-700: #3f3f46;
+  --accent-900: #18181b;
+  --accent-rgb: 113, 113, 122;
+
+  --hero-bg: #111827;
+  --hero-stop-1: 31, 41, 55;
+  --hero-stop-2: 55, 65, 81;
+  --hero-stop-3: 75, 85, 99;
+
+  --cta-stop-1: #374151;
+  --cta-stop-2: #4b5563;
+  --cta-stop-3: #6b7280;
+  --cta-text: #111827;
+  --cta-hover-bg: #f9fafb;
+
+  --admin-sidebar-stop-2: #1f2937;
+  --admin-sidebar-toggle-stop-2: #111827;
+} */
+
+/* =========================
+   BLUE THEME (Modern SaaS)
+========================= */
+/* :root {
+  --brand-50: #eff6ff;
+  --brand-100: #dbeafe;
+  --brand-200: #bfdbfe;
+  --brand-300: #93c5fd;
+  --brand-400: #60a5fa;
+  --brand-500: #3b82f6;
+  --brand-600: #2563eb;
+  --brand-700: #1d4ed8;
+  --brand-800: #1e40af;
+  --brand-900: #1e3a8a;
+  --brand-rgb: 59, 130, 246;
+
+  --accent-50: #f0f9ff;
+  --accent-100: #e0f2fe;
+  --accent-500: #0ea5e9;
+  --accent-700: #0369a1;
+  --accent-900: #082f49;
+  --accent-rgb: 14, 165, 233;
+
+  --hero-bg: #172554;
+  --hero-stop-1: 30, 64, 175;
+  --hero-stop-2: 29, 78, 216;
+  --hero-stop-3: 37, 99, 235;
+
+  --cta-stop-1: #1d4ed8;
+  --cta-stop-2: #2563eb;
+  --cta-stop-3: #3b82f6;
+  --cta-text: #1e3a8a;
+  --cta-hover-bg: #eff6ff;
+
+  --admin-sidebar-stop-2: #1e40af;
+  --admin-sidebar-toggle-stop-2: #172554;
+} */
+
+/* =========================
+   DARK BLUE THEME (Premium / Enterprise)
+========================= */
+/* :root {
+  --brand-50: #eef2ff;
+  --brand-100: #e0e7ff;
+  --brand-200: #c7d2fe;
+  --brand-300: #a5b4fc;
+  --brand-400: #818cf8;
+  --brand-500: #6366f1;
+  --brand-600: #4f46e5;
+  --brand-700: #4338ca;
+  --brand-800: #3730a3;
+  --brand-900: #312e81;
+  --brand-rgb: 99, 102, 241;
+
+  --accent-50: #f5f3ff;
+  --accent-100: #ede9fe;
+  --accent-500: #8b5cf6;
+  --accent-700: #6d28d9;
+  --accent-900: #2e1065;
+  --accent-rgb: 139, 92, 246;
+
+  --hero-bg: #0f172a;
+  --hero-stop-1: 15, 23, 42;
+  --hero-stop-2: 30, 41, 59;
+  --hero-stop-3: 49, 46, 129;
+
+  --cta-stop-1: #312e81;
+  --cta-stop-2: #3730a3;
+  --cta-stop-3: #4338ca;
+  --cta-text: #312e81;
+  --cta-hover-bg: #eef2ff;
+
+  --admin-sidebar-stop-2: #1e1b4b;
+  --admin-sidebar-toggle-stop-2: #0f172a;
+} */
+
+/* =========================
+   BLUE THEME (Modern SaaS)
+========================= */
+:root {
+  --brand-50: #eff6ff;
+  --brand-100: #dbeafe;
+  --brand-200: #bfdbfe;
+  --brand-300: #93c5fd;
+  --brand-400: #60a5fa;
+  --brand-500: #3b82f6;
+  --brand-600: #2563eb;
+  --brand-700: #1d4ed8;
+  --brand-800: #1e40af;
+  --brand-900: #1e3a8a;
+  --brand-rgb: 59, 130, 246;
+
+  --accent-50: #f0f9ff;
+  --accent-100: #e0f2fe;
+  --accent-500: #0ea5e9;
+  --accent-700: #0369a1;
+  --accent-900: #082f49;
+  --accent-rgb: 14, 165, 233;
+
+  --hero-bg: #1c2050;
+  --hero-stop-1: 28, 25, 80; /* ~ --brand-900 */
+  --hero-stop-2: 28, 70, 93; /* secondary (teal mid) */
+  --hero-stop-3: 20, 70, 56; /* tail (deep green) */
+  --hero-alpha-1: 0.92;
+  --hero-alpha-2: 0.78;
+  --hero-alpha-3: 0.78;
+
+  --cta-stop-1: #0f766e;
+  --cta-stop-2: #0d9488;
+  --cta-stop-3: #14b8a6;
+  --cta-text: #0f766e;
+  --cta-hover-bg: #f0fdfa;
+
+  --admin-sidebar-stop-2: #1e40af;
+  --admin-sidebar-toggle-stop-2: #172554;
+}
