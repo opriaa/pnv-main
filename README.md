@@ -8,20 +8,6 @@
 
 ## Environment Variables
 
-### Backend (.env)
-
-```
-PORT=5001
-MONGO_URI=<mongodb-connection-string>
-CLIENT_URL=http://localhost:5173
-RESEND_API_KEY=<resend-api-key>
-JWT_SECRET=<jwt-secret>
-ADMIN_EMAIL=<admin-notification-email>
-FROM_EMAIL=onboarding@resend.dev
-ADMIN_TOKEN=<admin-access-token>
-IMAGEKIT_ID=sljqsazoe
-IMAGEKIT_PUBLIC_KEY=<imagekit-public-key>
-IMAGEKIT_PRIVATE_KEY=<imagekit-private-key>
 ```
 
 ### Frontend (.env)
